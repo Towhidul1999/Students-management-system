@@ -4,7 +4,7 @@
 
             <div class="col-sm-9">
                 <div class="content">
-                    <h1 class="text-primary"><i class="fa fa-dashboard"></i> Dashboard <small class="text-secondary">Statistic Area</small></h1>
+                    <h1 class="text-primary"><i class="fa fa-users"></i> All Users <small class="text-secondary">Statistic Area</small></h1>
                     <ol class="breadcrumb"><li class="active"><i class="fa fa-dashboard"></i>Dashboard</li></ol>
 
                     <div class="row">
@@ -28,7 +28,7 @@
                                             <td><?php echo $row['name'];?></td>
                                             <td><?php echo $row['email'];?></td>
                                             <td><img width="40px" src="../images/users/<?php echo $row['photo'];?>" alt="user"></td>
-                                            <td><?php echo $row['date_time'];?></td>
+                                            <td><?php echo date('d-M-Y',strtotime($row['date_time']));?></td>
                                         </tr>
                                     <?php
                                     }

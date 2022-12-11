@@ -6,6 +6,8 @@ if (!isset($_SESSION['login_id'])) {
     header('location: ../login.php');
 }
 
+$user = $_SESSION['login_id'];
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +31,7 @@ if (!isset($_SESSION['login_id'])) {
                 <a href="index.php" class="navbar-brand"><i class="fa fa-dashboard"></i>JHSTC</a>
             </div>
             <ul class="d-flex">
-                <li class="m-3 breadcrumb"><a href=""><i class="fa fa-user"></i> Towhidul</a></li>
+                <li class="m-3 breadcrumb"><a href=""><i class="fa fa-user"></i> <?php $userName = mysqli_query($conn, "SELECT * FROM `users` WHERE `id` = '$user'"); $userData = mysqli_fetch_assoc($userName); echo $userData['name']; ?></a></li>
                 <li class="m-3 breadcrumb"><a href="../register.php"><i class="fa fa-user-plus"></i> Add User</a></li>
                 <li class="m-3 breadcrumb"><a href="logout.php"><i class="fa fa-power-off"></i> Exit</a></li>
             </ul>
@@ -41,7 +43,7 @@ if (!isset($_SESSION['login_id'])) {
             <div class="col-sm-3">
                 <div class="list-group">
                     <a href="" class="list-group-item active"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    <a href="" class="list-group-item"><i class="fa fa-user-plus"></i> Add Student</a>
+                    <a href="addStudent.php" class="list-group-item"><i class="fa fa-user-plus"></i> Add Student</a>
                     <a href="" class="list-group-item"><i class="fa fa-users"></i> All student</a>
                     <a href="allusers.php" class="list-group-item"><i class="fa fa-users"></i> All User</a>
                 </div>
